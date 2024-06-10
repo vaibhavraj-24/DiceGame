@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone the GitHub repository
+                git 'https://github.com/your_username/your_repository.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Commands to build your project
+                sh 'make' // Example for a project using Makefile
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Commands to test your project
+                sh 'make test' // Example for a project using Makefile
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Commands to deploy your project
+                sh 'make deploy' // Example for a project using Makefile
+            }
+        }
+    }
+}
